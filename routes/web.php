@@ -19,9 +19,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::redirect('/', 'products');
+Route::redirect('/', 'login');
 
-Route::resource('products', \App\Http\Controllers\ProductController::class);
+Route::resource('products', \App\Http\Controllers\ProductController::class)->middleware('auth');;
 
 
 require __DIR__.'/auth.php';
